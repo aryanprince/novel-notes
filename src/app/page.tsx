@@ -1,8 +1,10 @@
+import clsx from "clsx";
 import Link from "next/link";
 
 import { CreatePost } from "~/app/components/create-post";
 import { getServerAuthSession } from "~/server/auth";
 import { api } from "~/trpc/server";
+import { buttonVariants } from "./components/ui/button";
 
 export default async function Home() {
   const hello = await api.post.hello.query({ text: "from tRPC" });
@@ -38,7 +40,10 @@ export default async function Home() {
             </div>
             <Link
               href={session ? "/api/auth/signout" : "/api/auth/signin"}
-              className="rounded-full bg-white/10 px-10 py-3 font-semibold no-underline transition hover:bg-white/20"
+              className={clsx(
+                buttonVariants({ variant: "default" }),
+                "bg-white/10  hover:bg-white/20 hover:text-white",
+              )}
             >
               {session ? "Sign out" : "Sign in"}
             </Link>
