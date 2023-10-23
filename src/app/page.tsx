@@ -28,7 +28,7 @@ export default async function Home() {
           </p>
 
           <div className="flex flex-col items-center justify-center gap-4">
-            <div className="flex gap-2">
+            <div className="gap-2 md:flex">
               <p className="text-center">
                 {session && <span>Logged in as {session.user?.name}</span>}
               </p>
