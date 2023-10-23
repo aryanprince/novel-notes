@@ -30,13 +30,9 @@ export function CreatePost() {
         placeholder="Title"
         value={name}
         onChange={(e) => setName(e.target.value)}
-        className="w-full rounded-full px-4 py-2 text-black"
+        className="w-full rounded-md bg-neutral-100 px-4 py-2"
       />
-      <Button
-        type="submit"
-        className="w-fill bg-white/10 hover:bg-white/20"
-        disabled={createPost.isLoading}
-      >
+      <Button type="submit" className="w-fill" disabled={createPost.isLoading}>
         {createPost.isLoading ? "Submitting..." : "Submit"}
       </Button>
     </form>
